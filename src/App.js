@@ -19,8 +19,8 @@ const App = () => {
   //------------------------------------Operaciones CRUD----------------------------------
   //Agregar usuario
   const addUser = (user) => {
-    user.id = uuidv4()
-    console.log(user)
+    user.id = uuidv4();
+    console.log(user);
     modifyUsers([...usersStatus,user])
   }
 
@@ -57,7 +57,7 @@ const App = () => {
             <div>
               <h2>Edit user</h2>
               <EditUserForm 
-                currentUser={prevUser}
+                prevUser={prevUser}
                 updateUser={updateUser}
               />
             </div>

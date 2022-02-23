@@ -7,6 +7,7 @@ const AddUserForm = (props) => {
 
     const onSubmit = (data) => {
         console.log(data);
+        props.addUser(data);
     }
 
     return (
@@ -18,7 +19,7 @@ const AddUserForm = (props) => {
                     //ref={register({required: {value: true, message: "Campo requerido"}})}
                     //<div color='red'>{errors?.name?.required}</div>
                     //{errors?.name && errors.name.type === "required" && <span>Required</span>}
-                    {...register("name", {required: true,maxLength: 30})}  
+                    {...register("name", {required: true})}  
                 />
                 {errors.name && errors.name.type === "required" && <span>Required<br/></span> }
 

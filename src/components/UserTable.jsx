@@ -20,7 +20,7 @@ import React from 'react'
                         <td>{user.name}</td>
                         <td>{user.username}</td>
                         <td>
-                            <button className='button muted-button'> Edit </button>
+                            <button className='button muted-button' onClick={() => props.editRow(user)}> Edit </button>
                             <button className='button muted-button'> Delete </button>
                         </td>
                     </tr> 
