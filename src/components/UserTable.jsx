@@ -38,4 +38,4 @@ import React from 'react'
     </table>);
 }
 
-export default UserTable
+export default UserTable;
