@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# Sofka: crud-react-example
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Proyecto básico que implementa un CRUD con React apoyándose de React-hook-forms.
 
-## Available Scripts
+# Tecnologías utilizadas
+- Visual Studio Code: 1.64.2
+- NodeJS: 16.14.0
+- React-Form-hook: 7
 
-In the project directory, you can run:
+# Inicio del programa
 
-### `npm start`
+Se ejecuta la aplicación con el comando: npm run start o npm start, abriendose en el navegador como: localhost:3000
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Submenu algoritmos](https://github.com/mdyagual/crud-react-example/blob/master/ss/main.JPG)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Ingreso de nuevo usuario
 
-### `npm test`
+![Submenu algoritmos](https://github.com/mdyagual/crud-react-example/blob/master/ss/addUser.JPG)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Edición de usuario
 
-### `npm run build`
+- Antes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Submenu algoritmos](https://github.com/mdyagual/crud-react-example/blob/master/ss/main.JPG)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Después
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Submenu algoritmos](https://github.com/mdyagual/crud-react-example/blob/master/ss/editUser.JPG)
 
-### `npm run eject`
+## Eliminar usuario
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Submenu algoritmos](https://github.com/mdyagual/crud-react-example/blob/master/ss/deleteUser.JPG)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Validaciones
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Name y username son obligatorios
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Si estos campos no llegan a ingresarse, se muestra el mensaje 'Required'
 
-## Learn More
+![Submenu algoritmos](https://github.com/mdyagual/crud-react-example/blob/master/ss/addUserCtrl.JPG)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Si el arreglo inicial estuviera vacío
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Al suceder esto se muestra lo siguiente (Importante: Esto pierde efecto más adelante por el useEffect())
 
-### Code Splitting
+![Submenu algoritmos](https://github.com/mdyagual/crud-react-example/blob/master/ss/initial-users-noUsers.JPG)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Extra (voluntario)
 
-### Analyzing the Bundle Size
+## useffect()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Se agregó useEffect() para no perder datos almacenados al momento de recargar la página. Se ingresa un usuario, se recarga la página y este continúa existiendo.
 
-### Making a Progressive Web App
+![Submenu algoritmos](https://github.com/mdyagual/crud-react-example/blob/master/ss/extraUseEffect.JPG)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Submenu algoritmos](https://github.com/mdyagual/crud-react-example/blob/master/ss/extraUseEffect2.JPG)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Conclusiones
+- React hooks form ofrece facilidades durante el maquetado sencillo de cualquier aplicación, permitiendo aplicar la separación por componentes de acuerdo con las buenas prácticas de programación actuales.
+- useState() permite aplicar la deconstrucción para poder manipular el estado y modificación del arreglo de forma rápida y sencilla al mezclarse incluso con arrow functions.
+- El concepto de 'props' da vida al uso de componentes, ya que se comporta implicitamente como un conector al momento de crear el componente en el main, permitiendo utilizar funciones definidas en el mismo, o acceder a elementos de los objetos en cuestión
 
-### Deployment
+# Comentarios adicionales
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- La guía perdió su valor introductorio cuando se detectó que la versión de react-hook-forms era inferior a la personalmente instalada, teniendo que tratar los componentes de Edit y Add cuando se usaba useForm() diferente a lo mostrado en el video al momento de validar los campos obligatorios; provocando pérdida de tiempo en la funcionalidad designada en estos componentes.
 
-### `npm run build` fails to minify
+- Se presta para mejoras la aplicación de useEffect() en este escenario, ya que pruebas posteriores hacen que estos conceptos choquen con la validación de 'No users' mostrada anteriormente.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Preguntas
+
+- ¿Por qué existe preferencia en las arrow functions versus las funciones clásicas?
+Porque permiten escribir de forma simplificada. Esto da lugar a ocasiones donde puede ser escrita en una línea de código (si es lo suficientemente simple), adicionalmente entre otras reducciones de texto como: No necesitas escribir la palabra clave function, escribir return (ya que hace return implicito de ser necesario) o escribir las llaves {}
+
+- ¿Cómo se terminó resolviendo la particularidad de eliminación presentada al inicio de video?
+Generando ids automáticamente con uuid; el problema era que cada que reiniciaba la página, se reiniciaba el contador designado a ser el id de cada usuario.
+
+- ¿Cuál es el propósito del uso de componentes?
+Aplicar el dicho de 'Divide y vencerás', dando lugar a buenas prácticas de programación y re-utilización de código. Además de facilitar la maquetación e integración de funcionalidades que javascript ofrece a cualquier página web.
+
+- ¿Varía el concepto de componentes en otros frameworks de js como por ejemplo Angular?
+No, realmente lo que varía es cómo se crear/programan dichos componentes para posteriormente integrarlo al resultado final.
+
+#
+
+Hecho con mucho entusiasmo para Sofka U~ (◕‿◕✿)
+
