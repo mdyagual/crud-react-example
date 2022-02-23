@@ -1,9 +1,10 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import UserTable from './components/UserTable';
 import {v4 as uuidv4} from 'uuid';
 import AddUserForm from './components/AddUserForm';
 import EditUserForm from './components/EditUserForm';
 //Cambio a arrow function
+const KEY='UserApp.user'
 const App = () => {
   //Inicialización data
   const usersData = [
@@ -15,6 +16,23 @@ const App = () => {
   //Estado actual y modificación futura
   //users, setUsers
   const [usersStatus,modifyUsers] = useState(usersData)
+  
+  
+  //Inicialización con user effect para local storage
+  useEffect(()=>{
+      const storedUsers=JSON.parse(localStorage.getItem(KEY));
+      if (storedUsers){ //Si tiene algo
+          modifyUsers(storedUsers);
+      }
+  },[])
+
+
+
+  //Para no perder lo almacenado en el local storage
+  useEffect(()=>{
+    localStorage.setItem(KEY,JSON.stringify(usersStatus))
+  },[usersStatus]);
+
 
   //------------------------------------Operaciones CRUD----------------------------------
   //Agregar usuario
