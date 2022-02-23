@@ -13,6 +13,13 @@ const App = () => {
   //Estado actual y modificación futura
   const [usersStatus,modifyUsers] = useState(usersData)
 
+  //------------------------------------Operaciones CRUD----------------------------------
+  //Agregar usuario
+  const addUser = (user) => {
+    user.id = uuidv4()
+    console.log(user)
+    modifyUsers([...usersStatus,user])
+  }
 
 
   //Inicialización visual
@@ -31,6 +38,9 @@ const App = () => {
       </div>
     </div>
   );
+
+  
+
 }
 
 
