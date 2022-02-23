@@ -12,7 +12,9 @@ import React from 'react'
         </tr>
         </thead>
         <tbody>
-            {   //Implementación dinámica conforme se van agregando los usuarios
+            {   //Controlando la existencia de usuarios con operador ternario
+                props.users.length > 0 ?( //De cumplirse:
+                //Implementación dinámica conforme se van agregando los usuarios
                 props.users.map(user =>(
                     <tr key={user.id}>
                         <td>{user.name}</td>
@@ -22,7 +24,14 @@ import React from 'react'
                             <button className='button muted-button'> Delete </button>
                         </td>
                     </tr> 
-                ))
+                ) ) 
+                //Caso contrario:
+                ) : (
+                    <tr>
+                        <td colSpan={3}>No users</td>
+                    </tr>
+                )
+
             }
             
         </tbody>    
