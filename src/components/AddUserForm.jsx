@@ -33,7 +33,7 @@ const AddUserForm = (props) => {
                     // {errors.username && errors.username.type === "required" && <span>Required</span>}
                     {...register("username", {required: true})}
                 />
-                {errors?.username && errors.username.type === "required" && <span>Required<br/></span>}
+                {errors.username && errors.username.type === "required" && <span>Required<br/></span>}
                 
                    
                 
