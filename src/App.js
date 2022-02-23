@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import UserTable from './components/UserTable';
 import {v4 as uuidv4} from 'uuid';
+import AddUserForm from './components/AddUserForm';
+
 //Cambio a arrow function
 const App = () => {
   //Inicialización data
@@ -30,6 +32,7 @@ const App = () => {
       <div className="flex-row">
         <div className="flex-large">        
             <h2>Add user</h2>
+            <AddUserForm />
           </div>
           <div className="flex-large">
             <h2>View users</h2>  
