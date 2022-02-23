@@ -45,6 +45,12 @@ const App = () => {
     modifyUsers(usersStatus.map(user =>(user.id === id ? updatedUser : user)))
   }
 
+  //Eliminar usuario
+  const deleteUser = (id) => {
+    modifyUsers(usersStatus.filter(user => user.id !== id))
+  }
+
+
 
   //Inicialización visual
   return (
@@ -73,7 +79,7 @@ const App = () => {
           <h2>View users</h2>
           <UserTable 
             users={usersStatus} 
-            //deleteUser={deleteUser}            
+            deleteUser={deleteUser}            
             editRow={editRow}
             ></UserTable>
         </div>
