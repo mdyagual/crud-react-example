@@ -12,11 +12,11 @@ import React from 'react'
         </tr>
         </thead>
         <tbody>
-            {
+            {   //Implementación dinámica conforme se van agregando los usuarios
                 props.users.map(user =>(
-                    <tr>
-                        <td>Name data</td>
-                        <td>Username data</td>
+                    <tr key={user.id}>
+                        <td>{user.name}</td>
+                        <td>{user.username}</td>
                         <td>
                             <button className='button muted-button'> Edit </button>
                             <button className='button muted-button'> Delete </button>
